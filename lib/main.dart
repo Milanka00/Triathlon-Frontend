@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:triathlon/gettingstarted.dart';
 import 'package:triathlon/home.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:triathlon/shuttle.dart';
 
 void main() {
   runApp(
     DevicePreview(
-        enabled: kReleaseMode,
+        enabled: true,
         builder: (context) {
           return MyApp();
         }
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SafeArea( child:GettingStarted()),
+      home: UserDataCollection(),
       debugShowCheckedModeBanner: false,
     );
   }
