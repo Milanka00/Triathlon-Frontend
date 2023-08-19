@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:triathlon/booking_form.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:triathlon/login.dart';
+import 'package:triathlon/seat-booking.dart';
 import 'package:triathlon/shuttle.dart';
 
 void main() {
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: UserDataCollection(),
+      home: SeatBookingPage(),
       debugShowCheckedModeBanner: false,
     );
   }
