@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: UserDataCollection(),
+      home: BookingForm(),
       debugShowCheckedModeBanner: false,
     );
   }

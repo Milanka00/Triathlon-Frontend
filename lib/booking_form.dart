@@ -39,37 +39,97 @@ class _BookingFormState extends State<BookingForm> {
     contactNumberController.addListener(() => setState(() {}));
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        title: 'Booking Form',
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              buildNameField(),
-              SizedBox(height: 16.0),
-              buildEmailField(),
-              SizedBox(height: 16.0),
-              buildGenderField(),
-              SizedBox(height: 16.0),
-              buildLocationField(),
-              SizedBox(height: 16.0),
-              buildContactNumberField(),
-              SizedBox(height: 24.0),
-              buildAddPassengerButton(),
-              SizedBox(height: 16.0),
-              buildContinueButton(),
-            ],
+@override
+Widget build(BuildContext context) {
+    // Define seat type and seat code variables
+String seatType = 'Economy';
+String seatCode = 'IG-2105';
+  return Scaffold(
+    appBar: CustomAppBar(
+      title: 'Booking Form',
+    ),
+    body: SingleChildScrollView(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          // Selected Seat Section
+          Container(
+            color: Colors.purple[300], 
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Seat Type',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(
+                      seatType,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Seat Code',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(
+                      seatCode,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
+          SizedBox(height: 16.0), 
+          // Form Fields
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                buildNameField(),
+                SizedBox(height: 16.0),
+                buildEmailField(),
+                SizedBox(height: 16.0),
+                buildGenderField(),
+                SizedBox(height: 16.0),
+                buildLocationField(),
+                SizedBox(height: 16.0),
+                buildContactNumberField(),
+                SizedBox(height: 24.0),
+                buildAddPassengerButton(),
+                SizedBox(height: 16.0),
+                buildContinueButton(),
+              ],
+            ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Widget buildEmailField() => TextFormField(
         controller: emailController,
@@ -148,7 +208,7 @@ class _BookingFormState extends State<BookingForm> {
   Widget buildLocationField() => TextFormField(
         controller: locationController,
         decoration: InputDecoration(
-          hintText: 'C',
+          hintText: 'City',
           labelText: 'Location',
           prefixIcon: Icon(Icons.location_on),
           suffixIcon: locationController.text.isEmpty
@@ -231,18 +291,15 @@ class _BookingFormState extends State<BookingForm> {
         ),
       );
 
-bool isValidEmail(String email) {
-  // email pattern validation
-  final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-  return emailRegExp.hasMatch(email);
+  bool isValidEmail(String email) {
+    // email pattern validation
+    final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegExp.hasMatch(email);
+  }
+
+  bool isValidPhoneNumber(String phoneNumber) {
+    // Check if the phone number is exactly 10 digits and starts with 0
+    final phoneRegExp = RegExp(r'^0[0-9]{9}$');
+    return phoneRegExp.hasMatch(phoneNumber);
+  }
 }
-
-bool isValidPhoneNumber(String phoneNumber) {
-  // Check if the phone number is exactly 10 digits and starts with 0
-  final phoneRegExp = RegExp(r'^0[0-9]{9}$');
-  return phoneRegExp.hasMatch(phoneNumber);
-}
-
-}
-
-
