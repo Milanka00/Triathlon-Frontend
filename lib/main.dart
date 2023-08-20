@@ -6,6 +6,8 @@ import 'package:triathlon/login.dart';
 import 'package:triathlon/seat-booking.dart';
 import 'package:triathlon/shuttle.dart';
 
+import 'home.dart';
+
 void main() {
   runApp(
     DevicePreview(
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SeatBookingPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
