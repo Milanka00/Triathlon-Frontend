@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:triathlon/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -78,6 +79,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
+
                   // "View All" button functionality
                   },
                   style: ElevatedButton.styleFrom(
@@ -176,7 +178,12 @@ class ImageCard extends StatelessWidget {
                     Text(rating),
                     Spacer(),
                     ElevatedButton(
-                      onPressed: onPressed,
+                      onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context){
+                              return LoginPage(title: 'Login',);
+                            }));
+                      },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.purple,
                         onPrimary: Colors.white,

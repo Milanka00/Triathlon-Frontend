@@ -45,13 +45,13 @@ Widget build(BuildContext context) {
 String seatType = 'Economy';
 String seatCode = 'IG-2105';
   return Scaffold(
-    appBar: CustomAppBar(
-      title: 'Booking Form',
-    ),
     body: SingleChildScrollView(
       padding: EdgeInsets.all(16.0),
       child: Column(
         children: [
+          SizedBox(
+            height: 50,
+          ),
           // Selected Seat Section
           Container(
             color: Colors.purple[300], 

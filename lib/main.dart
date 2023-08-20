@@ -6,6 +6,7 @@ import 'package:triathlon/login.dart';
 import 'package:triathlon/seat-booking.dart';
 import 'package:triathlon/shuttle.dart';
 
+import 'forget_password.dart';
 import 'home.dart';
 
 void main() {

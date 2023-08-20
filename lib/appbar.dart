@@ -31,9 +31,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
       elevation: 0.0,
       backgroundColor: Colors.transparent,
       automaticallyImplyLeading: false,
-      title: Text(widget.title,style: TextStyle(color: Colors.deepOrange),),
+      title: Text(widget.title,style: TextStyle(),),
       leading:IconButton(
-        color: Colors.deepOrange,
         splashColor: Colors.red,
         icon:Icon(Icons.arrow_back_ios),
         onPressed: (){
@@ -45,7 +44,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: 5, end: 0),
           showBadge: (true),
-          badgeContent: Text('5',style: TextStyle(color: Colors.white),),
+          badgeContent: Text('5',style: TextStyle(color: Colors.purpleAccent),),
           badgeAnimation: badges.BadgeAnimation.rotation(
             animationDuration: Duration(seconds: 1),
             colorChangeAnimationDuration: Duration(seconds: 1),
@@ -55,14 +54,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
           ),
           badgeStyle: badges.BadgeStyle(
             shape: badges.BadgeShape.circle,
-            badgeColor: Colors.deepOrange,
+            badgeColor: Colors.purpleAccent,
             borderRadius: BorderRadius.circular(4),
 
             elevation: 0,
           ),
 
           child: IconButton(
-            icon: Icon(Icons.notifications,color: Colors.deepOrange,size: 40,),
+            icon: Icon(Icons.notifications,color: Colors.purpleAccent,size: 40,),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context){
@@ -73,83 +72,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
           ),
         ),
 
-        PopupMenuButton<MenuItem>(
-            icon: Icon(Icons.drag_indicator,color: Colors.deepOrange,),
-            iconSize: 40,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),side: BorderSide(color: Colors.deepOrange)),
-            color: Colors.white,
-            onSelected: (value){
-              if(value==MenuItem.item1){
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context)=> HomePage()));
-              }else if(value==MenuItem.item2){
-
-              }else if(value==MenuItem.item3){
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                  return SettingsPage();
-                }));
-
-              }
-
-            },
-
-            itemBuilder: (context)=>[
-
-              PopupMenuItem(
-                value: MenuItem.item1,
-
-
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-
-                    Container(
-                      padding: EdgeInsets.only(right: 12.0),
-                      decoration: new BoxDecoration(
-                          border: new Border(
-                              right: new BorderSide(width: 1.0, color: Colors.deepOrange))),
-                      child:Icon(Icons.settings,color: Colors.deepOrange,),
-                    ),
-                    Text(' Settings',style: TextStyle(color: Colors.deepOrange),),
-
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-
-                  value: MenuItem.item2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(right: 12.0),
-                        decoration: new BoxDecoration(
-                            border: new Border(
-                                right: new BorderSide(width: 1.0, color: Colors.deepOrange))),
-                        child:Icon(Icons.help,color: Colors.deepOrange,),
-                      ),
-                      Text(' Help amd Support',style: TextStyle(color: Colors.deepOrange)),
-                    ],
-                  )),
-              PopupMenuItem(
-
-                  value: MenuItem.item3,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(right: 12.0),
-                        decoration: new BoxDecoration(
-                            border: new Border(
-                                right: new BorderSide(width: 1.0, color: Colors.deepOrange))),
-                        child:Icon(Icons.feedback,color: Colors.deepOrange,),
-                      ),
-                      Text(' Feedback',style: TextStyle(color: Colors.deepOrange,)),
-                    ],
-                  )
-              )
-            ])
       ],
     );
   }

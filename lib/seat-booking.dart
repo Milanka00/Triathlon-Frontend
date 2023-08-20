@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:triathlon/booking_form.dart';
 import 'package:triathlon/utils/custom_colors.dart';
 
 class SeatBookingPage extends StatefulWidget {
@@ -259,6 +260,10 @@ class _SeatBookingPageState extends State<SeatBookingPage> {
                               )),
                               ElevatedButton(
                                   onPressed: () async {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context){
+                                          return BookingForm();
+                                        }));
                                   },
                                   style: ButtonStyle(
 

@@ -1,5 +1,9 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:triathlon/booking_form.dart';
+import 'package:triathlon/forget_password.dart';
+import 'package:triathlon/seat-booking.dart';
+import 'package:triathlon/shuttle.dart';
 import 'package:triathlon/signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -102,7 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                   // ),
                   TextButton(
                     onPressed: () {
-                      // Implement your Forgot Password functionality here
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context){
+                            return ForgetPasswordPage(title: 'Forgot');
+                          }));// Implement your Forgot Password functionality here
                     },
                     child: const Text(
                       'Forgot Password?',
@@ -115,7 +122,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context){
+                              return UserDataCollection();
+                            }));
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),

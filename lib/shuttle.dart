@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 import 'package:triathlon/appbar.dart';
+import 'package:triathlon/seat-booking.dart';
 import '../utils/accessory_widgets.dart';
 import '../utils/custom_colors.dart';
 import 'home.dart';
@@ -310,7 +311,10 @@ class _UserDataCollectionState extends State<UserDataCollection> {
                             onPressed: () async {
                               bool isValid = _key.currentState!.validate();
                               if (isValid) {
-
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context){
+                                      return SeatBookingPage();
+                                    }));
                               }
                             },
                             style: ButtonStyle(
